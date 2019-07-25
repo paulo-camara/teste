@@ -1,6 +1,6 @@
 import React from 'react';
-import Router from './components/router';
+import WithRouter from './components/router';
 import './main.css';
 
-const App = () => <Router />    
+const App = () => <WithRouter />    
 export default App;

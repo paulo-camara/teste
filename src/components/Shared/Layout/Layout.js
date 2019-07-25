@@ -2,10 +2,10 @@ import React from "react";
 
 import SideBar from "./../SideBar/SideBar";
 
-const Layout = () => (
+const Layout = ({ children }) => (
   <div className="layout">
     <SideBar />
-    <div className="imagem" />
+    {children}
   </div>
 );
 

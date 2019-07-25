@@ -1,0 +1,16 @@
+.home-page {
+  width: 100%;
+}
+
+.home-message {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.message {
+  padding: 100px 90px;
+  width: 800px;
+  font-family: Georgia;
+  font-weight: 100;
+  font-size: 80px;
+}

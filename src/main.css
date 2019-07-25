@@ -10,6 +10,10 @@ body {
     height: 100%;
 }
 
+#root {
+    height: 100%;
+}
+
 .banner {
     font-family: 'Lobster Two', cursive;
     font-size: 100px;
@@ -20,3 +24,4 @@ body {
 @import "../src/components/Shared/Layout/Layout.css";
 @import "../src/components/Shared/Menu/ItemMenu/ItemMenu.css";
 @import "../src/components/Shared/Menu/Menu.css";
+@import "../src/components/Home/Home.css";

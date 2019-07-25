@@ -15,7 +15,7 @@ export class Home extends React.Component {
 
   render() {
     return (
-      <div className="page-home">
+      <div className="home-page">
         <InputFilter
           idInput={"filter-car-input"}
           idButton={"filter-car-button"}
@@ -24,6 +24,10 @@ export class Home extends React.Component {
           value={"123"}
           buttonAction={this._findCar}
         />
+
+        <div className="home-message">
+          <h1 className="message"> Pesquisa de veiculo do AqueleClub </h1>
+        </div>
       </div>
     );
   }
