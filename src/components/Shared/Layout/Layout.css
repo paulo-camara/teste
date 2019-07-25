@@ -5,7 +5,6 @@
 
 .imagem {
   background: url("../../../assets/img/car-wireframe.png");
-  height: 550px;
   width: 100%;
   opacity: 0.1;
 }
