@@ -1,8 +1,6 @@
 import React from 'react';
-import './assets/styles/Shared.css';
-
 import Router from './scripts/router';
+import './main.css'
 
-const App = () => <Router />
-
+const App = () => <Router />    
 export default App;
