@@ -1,29 +1,30 @@
-import React from 'react';
+import React from "react";
 
-import InputFilter from '../Shared/Filters/InputFilter/InputFilter';
+import InputFilter from "../Shared/Filters/InputFilter/InputFilter";
 
 export class Home extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this._findCar = this._findCar.bind(this);
-    }
+    this._findCar = this._findCar.bind(this);
+  }
 
-    _findCar() {
-        console.log('Filtrou');
-    }
+  _findCar() {
+    console.log("Filtrou");
+  }
 
-    render() {
-        return (
-            <div className="page-home">
-                <InputFilter
-                    idInput={"filter-car-input"}
-                    idButton={"filter-car-button"}
-                    placeHolder={"Search a car"}
-                    titleButton={"Search"}
-                    value={'123'}
-                    buttonAction={this._findCar} />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="page-home">
+        <InputFilter
+          idInput={"filter-car-input"}
+          idButton={"filter-car-button"}
+          placeHolder={"Search a car"}
+          titleButton={"Search"}
+          value={"123"}
+          buttonAction={this._findCar}
+        />
+      </div>
+    );
+  }
 }

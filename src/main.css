@@ -1,0 +1,17 @@
+body {
+    margin: 0px;
+    background-color:#1f2d40;
+    color:#f5f5f5;
+    font-family: 'Roboto', sans-serif;
+}
+
+.banner {
+    font-family: 'Lobster Two', cursive;
+    font-size: 100px;
+}
+
+@import "../src/components/Shared/Filters/InputFilter/InputFilter.css";
+@import "../src/components/Shared/SideBar/SideBar.css";
+@import "../src/components/Shared/Layout/Layout.css";
+@import "../src/components/Shared/Menu/ItemMenu/ItemMenu.css";
+@import "../src/components/Shared/Menu/Menu.css";
