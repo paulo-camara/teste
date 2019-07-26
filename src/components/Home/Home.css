@@ -8,9 +8,10 @@
 }
 
 .message {
-  padding: 100px 90px;
+  padding: 80px 30px;
   width: 800px;
-  font-family: Georgia;
+  font-family: 'Lobster Two', cursive;;
   font-weight: 100;
-  font-size: 80px;
+  font-size: 60px;
+  color: white;
 }

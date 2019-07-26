@@ -6,6 +6,7 @@ const InputFilter = ({
   placeHolder,
   titleButton,
   value,
+  onChange,
   buttonAction
 }) => (
   <div className="input-filter">
@@ -14,6 +15,7 @@ const InputFilter = ({
       id={idInput}
       placeholder={placeHolder}
       value={value}
+      onChange={onChange}
     />
     <button
       className="button-filter-class"

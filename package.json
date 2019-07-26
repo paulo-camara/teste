@@ -8,7 +8,10 @@
     "react-currency-formatter": "^1.1.0",
     "react-dom": "^16.4.1",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "reflux": "^6.4.1",
+    "reflux-immutable": "^1.0.9",
+    "superagent": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
