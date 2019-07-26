@@ -3,7 +3,7 @@ import ItemMenu from "./ItemMenu/ItemMenu";
 
 const PAGES = [
   { path: "home", text: "Home" },
-  { path: "list-car", text: "Lista de carros" },
+  { path: "list", text: "Lista de carros" },
   { path: "create-car", text: "Cadastrar um veiculo" }
 ];
 

@@ -1,9 +1,9 @@
 import Reflux from 'reflux';
 
-const HomeActions = Reflux.createActions([
+const ListCarsActions = Reflux.createActions([
     'UpdateValueInput',
     'FindCar',
     'ResetState'
 ]);
 
-export default HomeActions;
+export default ListCarsActions;

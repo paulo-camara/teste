@@ -1,5 +1,5 @@
 import Reflux from 'reflux';
-import HomeActions from './HomeActions';
+import ListCarsActions from './ListCarsActions';
 import Request from '../../scripts/Request';
 import ApiRoutes from '../../scripts/ApiRoutes';
 
@@ -12,11 +12,11 @@ const _getInitialState = () => (
     }
 )
 
-class HomeStore extends Reflux.Store {
+class ListCarsStore extends Reflux.Store {
     constructor() {
         super();
 
-        this.listenables = HomeActions;
+        this.listenables = ListCarsActions;
         this.state = { ..._getInitialState() };
 
         this.request = new Request();
@@ -59,4 +59,4 @@ class HomeStore extends Reflux.Store {
     }
 }
 
-export default HomeStore;
+export default ListCarsStore;

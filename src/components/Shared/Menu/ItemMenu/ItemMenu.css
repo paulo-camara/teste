@@ -9,6 +9,9 @@ ul {
 }
 
 a {
-  color: white;
-  text-decoration:none; 
+  width: 100%;
+  color: #d0cdcd;
+  text-decoration: none;
+  border-bottom: 1px solid #525151;
+  padding: 3px; 
 }
