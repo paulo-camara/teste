@@ -4,8 +4,11 @@
   height: 100%;
 }
 
-.imagem {
-  background: url("../../../img/car-wireframe.png") no-repeat;
+.content {
   width: 100%;
-  opacity: 0.1;
+  background-image: url("../../../img/car-wireframe.png");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%;
+  opacity: 0.2;
 }

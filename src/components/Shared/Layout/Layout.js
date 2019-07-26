@@ -5,7 +5,7 @@ import SideBar from "./../SideBar/SideBar";
 const Layout = ({ children }) => (
   <div className="layout">
     <SideBar />
-    {children}
+    <div className="content">{children}</div>
   </div>
 );
 
