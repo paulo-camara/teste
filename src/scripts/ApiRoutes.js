@@ -1,7 +1,9 @@
-const UrlApi = 'localhost';
+class ApiRoutes {
+  constructor() {
+    this.Api = "http://private-anon-9d54cb3df6-tradersclubapi.apiary-mock.com/api/";
 
-const ApiRoutes = {
-    SaveCar: `${UrlApi}/saveCar`
+    this.ListCars = `${this.Api}/cars?search=`;
+  }
 }
 
-export default ApiRoutes;
+export default new ApiRoutes();

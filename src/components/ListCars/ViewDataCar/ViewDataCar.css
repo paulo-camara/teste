@@ -1,0 +1,16 @@
+.view-car {
+    padding: 20px 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-bottom: 1px solid white;
+}
+
+.row-one {
+    padding-bottom: 20px;
+}
+
+.row-one, .row-two {
+    display: flex;
+    justify-content: space-between;    
+}
+

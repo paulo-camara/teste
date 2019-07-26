@@ -1,62 +1,63 @@
-import Reflux from 'reflux';
-import ListCarsActions from './ListCarsActions';
-import Request from '../../scripts/Request';
-import ApiRoutes from '../../scripts/ApiRoutes';
+import Reflux from "reflux";
+import update from "immutability-helper";
+import ListCarsActions from "./ListCarsActions";
+import Request from "../../scripts/Request";
+import ApiRoutes from "../../scripts/ApiRoutes";
 
-const _getInitialState = () => (
-    {
-        data: {
-            value: ''
-        },
-        controls: {}
-    }
-)
+const _getInitialState = () => ({
+  data: {
+    value: "",
+    cars: []
+  }
+});
 
 class ListCarsStore extends Reflux.Store {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.listenables = ListCarsActions;
-        this.state = { ..._getInitialState() };
+    this.listenables = ListCarsActions;
+    this.state = { ..._getInitialState() };
 
-        this.request = new Request();
+    this.request = new Request();
 
-        this._findCarSucess = this._findCarSuccess.bind(this);
-        this._findCarFail = this._findCarFail.bind(this);
-    }
+    this._findCarSuccess = this._findCarSuccess.bind(this);
+    this._findCarFail = this._findCarFail.bind(this);
+  }
 
-    onUpdateValueInput(value) {
-        this.setState({
-            data: {
-                value
-            }
-        });
+  onUpdateValueInput(value) {
+    this.setState(
+      update(this.state, {
+        data: {
+          value: { $set: value }
+        }
+      })
+    );
+  }
 
-        console.log(this.state.data);
-    }
+  onFindCar() {
+    const { value } = this.state.data;
+    const route = `${ApiRoutes.ListCars}${value}`;
 
-    onFindCar() {
-        const payload = {}
+    this.request.SendRequestGet(route, this._findCarSuccess, this._findCarFail);
+  }
 
-        this.request.SendRequestPost(
-            ApiRoutes.SaveCar,
-            payload,
-            this._findCarSuccess,
-            this._findCarFail
-        );
-    }
+  _findCarSuccess(data) {
+    this.setState(
+      update(this.state, {
+        data: {
+          cars: { $set: data.cars }
+        }
+      })
+    );
+  }
 
-    _findCarSuccess(data) {
-        console.log(data);
-    }
+  _findCarFail(err) {
+    console.log(err);
+  }
 
-    _findCarFail(err) {
-        console.log(err);
-    }
-
-    onResetState() {
-        this.setState({ ..._getInitialState() });
-    }
+  onResetState() {
+    this.setState({ ..._getInitialState() });
+  }
 }
 
 export default ListCarsStore;

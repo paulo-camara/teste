@@ -26,3 +26,4 @@ body {
 @import "../src/components/Shared/Menu/Menu.css";
 @import "../src/components/Home/Home.css";
 @import "../src/components/ListCars/ListCars.css";
+@import "../src/components/ListCars/ViewDataCar/ViewDataCar.css";

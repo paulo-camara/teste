@@ -1,19 +1,12 @@
-import request from 'superagent';
+import axios from "axios";
 
 class Request {
-    SendRequestPost(route, payload, success, fail) {
-        request.post(route)
-            .send(payload)
-            .set('accept', 'json')
-            .end((err, res) => {
-                if (err) {
-                    return fail(err)
-                }
-
-                success(res)
-            })
-
-    }
+  SendRequestGet(route, success, fail) {
+    axios
+      .get(route)
+      .then(res => success(res.data))
+      .catch(err => fail(err));
+  }
 }
 
 export default Request;
