@@ -6,7 +6,7 @@ import ItemMenu from "./ItemMenu/ItemMenu";
 const PAGES = [
   { path: "home", text: "Home" },
   { path: "list", text: "Lista de carros" },
-  { path: "create-car", text: "Cadastrar um veiculo" }
+  { path: "detail-car", text: "Cadastrar um veiculo" }
 ];
 
 /** Componente stateless de menu lateral */

@@ -21,7 +21,7 @@ const ViewDataCar = ({ title, price, model, year, km, brand }) => (
     </div>
 
     {/* <span className="details-link"> detalhes </span> */}
-    <Link className="details-link" to={`/home`}>{'detalhes'}</Link>
+    <Link className="details-link" to={`/detail-car`}>{'detalhes'}</Link>
   </div>
 );
 
