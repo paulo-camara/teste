@@ -14,3 +14,10 @@
     justify-content: space-between;    
 }
 
+.details-link {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+    font-size: 13px;
+}
+

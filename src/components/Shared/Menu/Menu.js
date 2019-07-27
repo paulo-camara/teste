@@ -1,12 +1,15 @@
 import React from "react";
 import ItemMenu from "./ItemMenu/ItemMenu";
 
+/** Constante de paginas com text (nome a exibir no menu e 
+ * route (rota em que será redirecionada)) */
 const PAGES = [
   { path: "home", text: "Home" },
   { path: "list", text: "Lista de carros" },
   { path: "create-car", text: "Cadastrar um veiculo" }
 ];
 
+/** Componente stateless de menu lateral */
 export const Menu = () => {
   return (
     <div className="menu">

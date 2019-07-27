@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
 
-const ViewDataCar = ({ title, price, model, year, km }) => (
+/** Componente stateless de apresentação simplificada dos dados de um carro */
+const ViewDataCar = ({ title, price, model, year, km, brand }) => (
   <div className="view-car">
     <div className="row-one">
       <b>
@@ -12,12 +14,19 @@ const ViewDataCar = ({ title, price, model, year, km }) => (
       </b>
     </div>
     <div className="row-two">
-      <span className="description-car">{model}</span>
+      <div className="model">
+        <span className="description-car">{`${model} - ${brand} - ${km} Km`}</span>
+      </div>
       <span className="year-car">{year}</span>
     </div>
+
+    {/* <span className="details-link"> detalhes </span> */}
+    <Link className="details-link" to={`/home`}>{'detalhes'}</Link>
   </div>
 );
 
+
+/** Propriedades necessarias para usar o componente */
 ViewDataCar.propTypes = {
   km: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,

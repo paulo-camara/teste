@@ -8,10 +8,7 @@ ul {
   padding: 0px;
 }
 
-a {
-  width: 100%;
-  color: #d0cdcd;
-  text-decoration: none;
+.menu-link {
   border-bottom: 1px solid #525151;
   padding: 3px; 
 }

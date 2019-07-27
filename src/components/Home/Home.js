@@ -1,5 +1,6 @@
 import React from "react";
 
+/** Componente stateless da tela inicial da aplicação */
 const Home = () => (
   <div className="home-page">
     <div className="home-message">

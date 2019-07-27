@@ -2,6 +2,10 @@ html {
     height: 100%;
 }
 
+#root {
+    height: 100%;
+}
+
 body {
     margin: 0px;
     background-color:#1f2d40;
@@ -10,15 +14,14 @@ body {
     height: 100%;
 }
 
-#root {
-    height: 100%;
+a {
+    width: 100%;
+    color: #d0cdcd;
+    text-decoration: none;
 }
 
-.banner {
-    font-family: 'Lobster Two', cursive;
-    font-size: 100px;
-}
-
+/* Importação de cada arquivo css 
+    A CADA ARQUIVO CSS CRIADO DEVE SER ADICIONADO AQUI */
 @import "../src/components/Shared/Filters/InputFilter/InputFilter.css";
 @import "../src/components/Shared/SideBar/SideBar.css";
 @import "../src/components/Shared/Layout/Layout.css";
@@ -27,3 +30,4 @@ body {
 @import "../src/components/Home/Home.css";
 @import "../src/components/ListCars/ListCars.css";
 @import "../src/components/ListCars/ViewDataCar/ViewDataCar.css";
+@import "../src/components/Shared/Loading/Loading.css";
