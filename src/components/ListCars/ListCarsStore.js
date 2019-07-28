@@ -1,13 +1,12 @@
 import Reflux from "reflux";
 import update from "immutability-helper";
 import ListCarsActions from "./ListCarsActions";
-import Request from "../../scripts/Request";
-import ApiRoutes from "../../scripts/ApiRoutes";
+import ListCar from "../../scripts/ListCar/ListCar";
 
 /** Método retorna todo o state inicial */
 const _getInitialState = () => ({
   data: {
-    value: "",
+    valueInput: "",
     cars: []
   },
   controls: {
@@ -22,18 +21,22 @@ class ListCarsStore extends Reflux.Store {
     this.listenables = ListCarsActions;
     this.state = { ..._getInitialState() };
 
-    this.request = new Request();
-
     this._findCarSuccess = this._findCarSuccess.bind(this);
     this._findCarFail = this._findCarFail.bind(this);
   }
+
+  onInstanceListCar() {
+    const { valueInput } = this.state.data;
+
+    this.listCar = new ListCar(valueInput, this._findCarSuccess, this._findCarFail);
+}
 
   /** Método responsavel por controlar o state do input de filtro */
   onUpdateValueInput(value) {
     this.setState(
       update(this.state, {
         data: {
-          value: { $set: value }
+          valueInput: { $set: value }
         }
       })
     );
@@ -43,10 +46,7 @@ class ListCarsStore extends Reflux.Store {
     this._clearListCars();
     this._setLoading(true);
 
-    const { value } = this.state.data;
-    const route = `${ApiRoutes.ListCars}${value}`;
-
-    this.request.SendRequestGet(route, this._findCarSuccess, this._findCarFail);
+    this.listCar.GetListCar();
   }
 
   /** método executado em caso de sucesso da request. 

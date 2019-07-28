@@ -1,5 +1,5 @@
-import Request from "../../../scripts/Request";
-import ApiRoutes from "../../../scripts/ApiRoutes";
+import Request from "../Request";
+import ApiRoutes from "../ApiRoutes";
 
 class ListCar {
     constructor(carID, success, error) {

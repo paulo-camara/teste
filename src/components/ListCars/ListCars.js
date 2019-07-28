@@ -23,6 +23,10 @@ class ListCars extends Reflux.Component {
     ListCarsActions.ResetState();
   }
 
+  componentDidUpdate() {
+    ListCarsActions.InstanceListCar();
+  }
+
   /** A cada change no input o metodo onChangeInput é disparado, 
    * passando o valor para a store */
   onChangeInput(event) {
@@ -59,6 +63,8 @@ class ListCars extends Reflux.Component {
         {cars.map((item, index) => (
           <ViewDataCar
             key={index}
+            id={item.id}
+            color={item.color}
             brand={item.brand}
             title={item.title}
             price={item.price}

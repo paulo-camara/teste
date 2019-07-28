@@ -4,7 +4,12 @@ const CarDetailActions = Reflux.createActions([
     'InstanceListCar',
     'Find',
     'ChangeInput',
-    'SetInitialState'
+    'SetInitialState',
+    'SetData',
+    'Save',
+    'Remove',
+    'Cancel',
+    'Update'
 ]);
 
 export default CarDetailActions;

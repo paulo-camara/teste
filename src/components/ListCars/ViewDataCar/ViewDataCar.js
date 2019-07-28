@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
+import CarDetailActions from "../../CarDetail/CarDetailActions";
 
 /** Componente stateless de apresentação simplificada dos dados de um carro */
-const ViewDataCar = ({ title, price, model, year, km, brand }) => (
+const ViewDataCar = ({ title, price, model, year, km, brand, color, id }) => (
   <div className="view-car">
     <div className="row-one">
       <b>
@@ -20,9 +21,18 @@ const ViewDataCar = ({ title, price, model, year, km, brand }) => (
       <span className="year-car">{year}</span>
     </div>
 
-    <Link className="details-link" to={`/detail-car`}>{'detalhes'}</Link>
+    <Link
+      className="details-link"
+      to={`/detail-car`}
+      onClick={() => SetDataInDetailCar({ id, color, title, price, model, year, km, brand })}>
+      {'detalhes'}
+    </Link>
   </div>
 );
+
+const SetDataInDetailCar = (data) => {
+  CarDetailActions.SetData(data);
+}
 
 
 /** Propriedades necessarias para usar o componente */

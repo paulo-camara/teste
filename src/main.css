@@ -31,3 +31,4 @@ a {
 @import "../src/components/ListCars/ListCars.css";
 @import "../src/components/ListCars/ViewDataCar/ViewDataCar.css";
 @import "../src/components/Shared/Loading/Loading.css";
+@import "../src/components/CarDetail/ViewFullDataCar/ViewFullDataCar.css";

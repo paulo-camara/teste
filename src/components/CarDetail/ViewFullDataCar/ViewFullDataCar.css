@@ -1,0 +1,27 @@
+button {
+    padding: 5px;
+    border-radius: 3px;
+    margin: 10px;
+    margin-top: 20px;
+}
+
+input {
+    border: 1px solid #747577;
+    color: white;
+    background: #1f2d40;
+    border-radius: 3px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.remove-button {
+    border: 1px solid red;
+    background: red;
+    color: white;
+}
+
+.update-button, .cancel-button, .save-button {
+    border: 1px solid #747577;
+    background: #747577;
+    color: white;
+}
