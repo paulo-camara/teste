@@ -7,6 +7,16 @@ class Request {
       .then(res => success(res.data))
       .catch(err => fail(err));
   }
+
+  SendRequestPost(route, payload, success, fail) {
+    axios.post(route, payload)
+      .then((res)=> {
+        success(res);
+      })
+      .catch((error)=> {
+        fail(error);
+      });
+  }
 }
 
 export default Request;

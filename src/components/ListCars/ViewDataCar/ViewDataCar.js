@@ -1,39 +1,58 @@
 import React from "react";
+import Reflux from "reflux";
 import PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
+import CarDetailStore from "../../CarDetail/CarDetailStore";
 import CarDetailActions from "../../CarDetail/CarDetailActions";
 
-/** Componente stateless de apresentação simplificada dos dados de um carro */
-const ViewDataCar = ({ title, price, model, year, km, brand, color, id }) => (
-  <div className="view-car">
-    <div className="row-one">
-      <b>
-        <span className="model-car">{title}</span>
-      </b>
-      <b>
-        <span className="value-car">{`R$ ${price}`}</span>
-      </b>
-    </div>
-    <div className="row-two">
-      <div className="model">
-        <span className="description-car">{`${model} - ${brand} - ${km} Km`}</span>
+
+class ViewDataCar extends Reflux.Component {
+  constructor(props) {
+    super(props);
+
+    this.store = CarDetailStore;
+
+    this.GetCar = this.GetCar.bind(this);
+  }
+
+  GetCar() {
+    const { id } = this.props;
+        
+    CarDetailActions.GetDetailsCar(id);
+  }
+
+  render() {
+    const { title, price, model, year, km, brand } = this.props;
+
+    return (
+      <div className="view-car">
+        <div className="row-one">
+          <b>
+            <span className="model-car">{title}</span>
+          </b>
+          <b>
+            <span className="value-car">{`R$ ${price}`}</span>
+          </b>
+        </div>
+        <div className="row-two">
+          <div className="model">
+            <span className="description-car">{`${model} - ${brand} - ${km} Km`}</span>
+          </div>
+          <span className="year-car">{year}</span>
+        </div>
+
+        <Link
+          className="details-link"
+          to={`/detail-car`}
+          onClick={this.GetCar}>
+          {'detalhes'}
+        </Link>
       </div>
-      <span className="year-car">{year}</span>
-    </div>
+    );
+  }
 
-    <Link
-      className="details-link"
-      to={`/detail-car`}
-      onClick={() => SetDataInDetailCar({ id, color, title, price, model, year, km, brand })}>
-      {'detalhes'}
-    </Link>
-  </div>
-);
 
-const SetDataInDetailCar = (data) => {
-  CarDetailActions.SetData(data);
 }
-
 
 /** Propriedades necessarias para usar o componente */
 ViewDataCar.propTypes = {

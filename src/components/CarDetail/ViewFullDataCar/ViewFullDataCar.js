@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 const ViewFullDataCar = (props) => {
     const {
@@ -21,38 +21,45 @@ const ViewFullDataCar = (props) => {
         <div className="view-full-data-car col-sm-12">
             <div className="col-sm-12">
                 <input
+                    name="title"
                     className="col-sm-6 title"
                     onChange={onChange}
                     value={title} />
             </div>
             <div className="col-sm-12">
                 <input 
+                    name="model"
                     className="space-between model col-sm-3" 
                     onChange={onChange} 
                     value={model} />
                 <input
+                    name="year"
                     className="space-between year col-sm-3"
                     onChange={onChange}
                     value={year} />
             </div>
             <div className="col-sm-12">
                 <input 
+                    name="brand"
                     className={"col-sm-6"} 
                     onChange={onChange} 
                     value={brand}/>
             </div>
             <div className="col-sm-12">
                 <input
+                    name="color"
                     className="space-between color col-sm-3"
                     onChange={onChange}
                     value={color} />
                 <input
+                    name="price"
                     className="space-between price col-sm-3"
                     onChange={onChange}
                     value={price} />
             </div>
             <div className="col-sm-12">
                 <input
+                    name="km"
                     className="col-sm-3 km"
                     onChange={onChange}
                     value={km} />

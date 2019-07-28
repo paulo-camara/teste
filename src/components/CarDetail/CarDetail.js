@@ -60,6 +60,10 @@ class CarDetail extends Reflux.Component {
         CarDetailActions.ChangeInput(event)
     }
 
+    onChangeViewFullDataCar(event) {
+        CarDetailActions.ChangeViewFullDataCar(event);
+    }
+
     render() {
         const { isLoading } = this.state.controls;
         const { valueInput, car } = this.state.data;
