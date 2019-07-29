@@ -1,9 +1,9 @@
 import Reflux from "reflux";
 import update from "immutability-helper";
-import ListCar from "../../scripts/ListCar/ListCar";
 import CarDetailActions from "./CarDetailActions";
 import ApiRoutes from "../../scripts/ApiRoutes";
 import Request from "../../scripts/Request";
+import toastr from "toastr";
 
 const _getInitialState = () => ({
   data: {
@@ -57,13 +57,13 @@ class CarDetailStore extends Reflux.Store {
    * tela de listagem de veiculos */
   onGetDetailsCar(carID) {
     this._setLoading(true);
-    this.listCar = new ListCar(
-      carID,
+    this.route = `${ApiRoutes.ListCars}${carID}`;
+
+    this.request.SendRequestGet(
+      this.route,
       this._getDetailsCarSuccess,
       this._getDetailsCarFail
     );
-
-    this.listCar.GetListCar();
   }
 
   _getDetailsCarSuccess(data) {
@@ -79,7 +79,7 @@ class CarDetailStore extends Reflux.Store {
 
   _getDetailsCarFail(err) {
     this._setLoading(false);
-    console.log(err);
+    toastr.error("Erro ao buscar detalhamento do veiculo");
   }
 
   /** Grava o state de cada input do detalhemento pelo nome do input passado
@@ -114,10 +114,9 @@ class CarDetailStore extends Reflux.Store {
     this._setLoading(true);
 
     const { valueInput } = this.state.data;
+    const route = `${ApiRoutes.ListCars}${valueInput}`;
 
-    this.listCar = new ListCar(valueInput, this._findSuccess, this._findFail);
-
-    this.listCar.GetListCar();
+    this.request.SendRequestGet(route, this._findSuccess, this._findFail);
   }
 
   _findSuccess(data) {
@@ -133,7 +132,8 @@ class CarDetailStore extends Reflux.Store {
 
   _findFail() {
     this._setLoading(false);
-    console.log("fail");
+
+    toastr.error("Erro ao buscar veiculo");
   }
 
   /** Executa a request de salvar o veiculo */
@@ -161,14 +161,12 @@ class CarDetailStore extends Reflux.Store {
   }
 
   _saveSuccess() {
-    //mostra o toastr de sucesso
-    console.log("salvou");
+    toastr.success("Veiculo salvo com sucesso");
     this.onSetInitialState();
   }
 
   _saveFail() {
-    //mostra o toastr de falha
-    console.log("falhou o salvamento");
+    toastr.error("Erro ao salvar o veiculo");
   }
 
   /** Faz a request de update */
@@ -192,15 +190,12 @@ class CarDetailStore extends Reflux.Store {
   }
 
   _updateSuccess() {
-    //exibe o toastr de atualizado com sucesso
+    toastr.success("Atualizado com sucesso");
     this.onSetInitialState();
-
-    console.log("atualizado");
   }
 
   _updateFail() {
-    //exibe o toastr de falha ao atualizar
-    console.log("falhou a atualização");
+    toastr.error("Erro ao atualizar veiculo");
   }
 
   /** Faz a request de exclusão do veiculo */

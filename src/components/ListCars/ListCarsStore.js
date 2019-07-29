@@ -2,7 +2,8 @@ import toastr from "toastr";
 import Reflux from "reflux";
 import update from "immutability-helper";
 import ListCarsActions from "./ListCarsActions";
-import ListCar from "../../scripts/ListCar/ListCar";
+import ApiRoutes from "../../scripts/ApiRoutes";
+import Request from './../../scripts/Request';
 
 /** Método retorna todo o state inicial */
 const _getInitialState = () => ({
@@ -22,18 +23,10 @@ class ListCarsStore extends Reflux.Store {
     this.listenables = ListCarsActions;
     this.state = { ..._getInitialState() };
 
+    this.request = new Request();
+
     this._findCarSuccess = this._findCarSuccess.bind(this);
     this._findCarFail = this._findCarFail.bind(this);
-  }
-
-  onInstanceListCar() {
-    const { valueInput } = this.state.data;
-
-    this.listCar = new ListCar(
-      valueInput,
-      this._findCarSuccess,
-      this._findCarFail
-    );
   }
 
   /** Método responsavel por controlar o state do input de filtro */
@@ -48,12 +41,13 @@ class ListCarsStore extends Reflux.Store {
   }
   /** Metodo responsavel por fazer a chamada da request de obter a lista de carros */
   onFindCar() {
-    toastr.success("sucesso");
-
     this._clearListCars();
     this._setLoading(true);
 
-    this.listCar.GetListCar();
+    const { valueInput } = this.state.data;
+    const route = `${ApiRoutes.ListCars}${valueInput}`;
+
+    this.request.SendRequestGet(route, this._findCarSuccess, this._findCarFail)
   }
 
   /** método executado em caso de sucesso da request.
@@ -73,8 +67,7 @@ class ListCarsStore extends Reflux.Store {
   /** Método executado em caso de erro na request. Exibe o toastr de erro */
   _findCarFail(err) {
     this._setLoading(false);
-
-    console.log(err);
+    toastr.error("Erro ao buscar veiculo");
   }
 
   /** Método responsavel por limpar a lista de carros, para quando for feito um

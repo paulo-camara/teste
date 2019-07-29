@@ -22,6 +22,7 @@ a {
 
 /* Importação de cada arquivo css 
     A CADA ARQUIVO CSS CRIADO DEVE SER ADICIONADO AQUI */
+@import "~toastr/build/toastr.min.css";
 @import "../src/components/Shared/Filters/InputFilter/InputFilter.css";
 @import "../src/components/Shared/SideBar/SideBar.css";
 @import "../src/components/Shared/Layout/Layout.css";

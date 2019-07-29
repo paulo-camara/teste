@@ -23,9 +23,6 @@ class ListCars extends Reflux.Component {
     ListCarsActions.ResetState();
   }
 
-  componentDidUpdate() {
-    ListCarsActions.InstanceListCar();
-  }
 
   /** A cada change no input o metodo onChangeInput é disparado, 
    * passando o valor para a store */
