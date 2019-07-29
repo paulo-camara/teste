@@ -1,4 +1,4 @@
-import toastr from 'toastr';
+import toastr from "toastr";
 import Reflux from "reflux";
 import update from "immutability-helper";
 import ListCarsActions from "./ListCarsActions";
@@ -29,8 +29,12 @@ class ListCarsStore extends Reflux.Store {
   onInstanceListCar() {
     const { valueInput } = this.state.data;
 
-    this.listCar = new ListCar(valueInput, this._findCarSuccess, this._findCarFail);
-}
+    this.listCar = new ListCar(
+      valueInput,
+      this._findCarSuccess,
+      this._findCarFail
+    );
+  }
 
   /** Método responsavel por controlar o state do input de filtro */
   onUpdateValueInput(value) {
@@ -44,7 +48,7 @@ class ListCarsStore extends Reflux.Store {
   }
   /** Metodo responsavel por fazer a chamada da request de obter a lista de carros */
   onFindCar() {
-    toastr.success('sucesso');
+    toastr.success("sucesso");
 
     this._clearListCars();
     this._setLoading(true);
@@ -52,7 +56,7 @@ class ListCarsStore extends Reflux.Store {
     this.listCar.GetListCar();
   }
 
-  /** método executado em caso de sucesso da request. 
+  /** método executado em caso de sucesso da request.
    * Responsavel por setar a lista de carros no state da da tela de ListCars */
   _findCarSuccess(data) {
     this._setLoading(false);
@@ -73,24 +77,27 @@ class ListCarsStore extends Reflux.Store {
     console.log(err);
   }
 
-  /** Método responsavel por limpar a lista de carros, para quando for feito um 
+  /** Método responsavel por limpar a lista de carros, para quando for feito um
    * segundo filtro, não exibir lixos enquanto faz a request */
   _clearListCars() {
-    this.setState(update(this.state, {
-      data: {
-        cars: { $set: [] }
-      }
-    })
+    this.setState(
+      update(this.state, {
+        data: {
+          cars: { $set: [] }
+        }
+      })
     );
   }
 
   /** Método responsavel por setar o state do isLoading de acordo com o parametro passado  */
   _setLoading(status) {
-    this.setState(update(this.state, {
-      controls: {
-        isLoading: { $set: status }
-      }
-    }))
+    this.setState(
+      update(this.state, {
+        controls: {
+          isLoading: { $set: status }
+        }
+      })
+    );
   }
 
   /** Método responsavel por restaurar o state inicial */
