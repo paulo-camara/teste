@@ -11,23 +11,24 @@ const InputFilter = ({
   onChange,
   buttonAction
 }) => (
-  <div className="input-filter">
-    <input
-      className="input-filter-class"
-      id={idInput}
-      placeholder={placeHolder}
-      value={value}
-      onChange={onChange}
-    />
-    <button
-      className="button-filter-class"
-      id={idButton}
-      onClick={() => buttonAction()}
-    >
-      {titleButton}
-    </button>
-  </div>
-);
+    <div className="input-filter">
+      <input
+        name="valueInput"
+        className="input-filter-class"
+        id={idInput}
+        placeholder={placeHolder}
+        value={value}
+        onChange={onChange}
+      />
+      <button
+        className="button-filter-class"
+        id={idButton}
+        onClick={() => buttonAction()}
+      >
+        {titleButton}
+      </button>
+    </div>
+  );
 
 /** Propriedades necessarias para utilizar o componente de filtro */
 InputFilter.propTypes = {

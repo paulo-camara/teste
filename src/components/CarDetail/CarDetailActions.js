@@ -1,10 +1,9 @@
 import Reflux from "reflux";
 
 const CarDetailActions = Reflux.createActions([
-    'InstanceListCar',
     'Find',
-    'ChangeInput',
-    'ChangeViewFullDataCar',
+    'ChangeInputDetail',
+    'ChangeInputFilter',
     'SetInitialState',
     'GetDetailsCar',
     'Save',

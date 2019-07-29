@@ -1,9 +1,7 @@
 import React from "react";
 import Reflux from "reflux";
-
 import Loading from "../Shared/Loading/Loading";
 import InputFilter from "../Shared/Filters/InputFilter/InputFilter";
-
 import CarDetailActions from "./CarDetailActions";
 import CarDetailStore from "./CarDetailStore";
 import ViewFullDataCar from "../CarDetail/ViewFullDataCar/ViewFullDataCar";
@@ -15,6 +13,8 @@ class CarDetail extends Reflux.Component {
         this.store = CarDetailStore;
         this.state = {};
 
+        /** binds feito no constructor para não ser bindado novamente
+         *  a cada atualização de estado */
         this.onChangeInput = this.onChangeInput.bind(this);
         this._findCar = this._findCar.bind(this);
 
@@ -23,17 +23,16 @@ class CarDetail extends Reflux.Component {
         this.buttonUpdateAction = this.buttonUpdateAction.bind(this);
         this.buttonCancelAction = this.buttonCancelAction.bind(this);
     }
-
+    
+    /** Ao montar o componente seta o state inicial pela store */
     componentDidMount() {
         CarDetailActions.SetInitialState();
     }
 
+    /** Quando o componente é desmontado é necessario que limpe o state 
+     * para que não fique lixo ao voltar na tela */
     componentWillUnmount() {
         CarDetailActions.SetInitialState();
-    }
-
-    componentDidUpdate() {
-        CarDetailActions.InstanceListCar();
     }
 
     buttonSaveAction() {
@@ -56,12 +55,15 @@ class CarDetail extends Reflux.Component {
         CarDetailActions.Find();
     }
 
+    /** Controla o state do input de filtro */
     onChangeInput(event) {
-        CarDetailActions.ChangeInput(event)
+        CarDetailActions.ChangeInputFilter(event)
     }
 
+    /** Controla os states dos inputs de detalhamento do 
+     * veiculo */
     onChangeViewFullDataCar(event) {
-        CarDetailActions.ChangeViewFullDataCar(event);
+        CarDetailActions.ChangeInputDetail(event);
     }
 
     render() {
@@ -73,8 +75,8 @@ class CarDetail extends Reflux.Component {
                 <InputFilter
                     idInput={"filter-car-input"}
                     idButton={"filter-car-button"}
-                    placeHolder={"Search a car"}
-                    titleButton={"Search"}
+                    placeHolder={"Pesquise por um veiculo"}
+                    titleButton={"Pesquisar"}
                     value={valueInput}
                     onChange={this.onChangeInput}
                     buttonAction={this._findCar}

@@ -1,3 +1,4 @@
+import toastr from 'toastr';
 import Reflux from "reflux";
 import update from "immutability-helper";
 import ListCarsActions from "./ListCarsActions";
@@ -43,6 +44,8 @@ class ListCarsStore extends Reflux.Store {
   }
   /** Metodo responsavel por fazer a chamada da request de obter a lista de carros */
   onFindCar() {
+    toastr.success('sucesso');
+
     this._clearListCars();
     this._setLoading(true);
 

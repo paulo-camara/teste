@@ -51,6 +51,8 @@ class CarDetailStore extends Reflux.Store {
         this._removeFail = this._removeFail.bind(this);
     }
 
+    /**Método executado quando é requisitado o detalhamento pela 
+     * tela de listagem de veiculos */
     onGetDetailsCar(carID) {
         setTimeout(() => {
             this._setLoading(true);
@@ -75,7 +77,20 @@ class CarDetailStore extends Reflux.Store {
         console.log(err)
     }
 
-    onChangeViewFullDataCar(event) {
+    /** Grava o state de cada input do detalhemento pelo nome do input passado 
+     * como variavel de acesso do objeto de state */
+    onChangeInputDetail(event) {
+        this.setState(update(this.state, {
+            data: {
+                car: {
+                    [event.target.name]: { $set: event.target.value }
+                }
+            }
+        }));
+    }
+
+    /** Grava o valor do input do filtro pelo name do input */
+    onChangeInputFilter(event) {
         this.setState(update(this.state, {
             data: {
                 [event.target.name]: { $set: event.target.value }
@@ -83,23 +98,16 @@ class CarDetailStore extends Reflux.Store {
         }));
     }
 
-    ChangeInput(event) {
-        this.setState(update(this.state, {
-            data: {
-                valueInput: { $set: event.target.value }
-            }
-        }));
-    }
-
-    onInstanceListCar() {
-        const { valueInput } = this.state.data;
-
-        this.listCar = new ListCar(valueInput, this._findSuccess, this._findFail);
-    }
-
+    /** Executa a request do list pela classe compartilhada de request 
+     * da lista de veiculos */
     onFind() {
         this._clearListCar();
         this._setLoading(true);
+
+        const { valueInput } = this.state.data;
+
+        this.listCar = new ListCar(valueInput, this._findSuccess, this._findFail);
+
         this.listCar.GetListCar();
     }
 
@@ -117,8 +125,9 @@ class CarDetailStore extends Reflux.Store {
         console.log('fail');
     }
 
+    /** Executa a request de salvar o veiculo */
     onSave() {
-        const { title, model, price, year, color, brand, km } = this.state.data;
+        const { title, model, price, year, color, brand, km } = this.state.data.car;
 
         const payload = {
             title,
@@ -130,6 +139,8 @@ class CarDetailStore extends Reflux.Store {
             km
         };
 
+        //validar o payload antes de salvar
+
         this.request.SendRequestPost(
             ApiRoutes.SaveCar,
             payload,
@@ -140,42 +151,43 @@ class CarDetailStore extends Reflux.Store {
 
     _saveSuccess() {
         //mostra o toastr de sucesso
+        console.log('salvou');
         this.onSetInitialState();
     }
 
     _saveFail() {
         //mostra o toastr de falha
+        console.log('falhou o salvamento');
     }
 
-    onDelete() {
-        // const { id } = this.state.data;
-
-        //faz o post de exclusão
-    }
-
-    _deleteSuccess() {
-        //mostra o toastr de sucesso
-
-        this.onSetInitialState();
-    }
-
-    _deleteFail() {
-        //mostra o toastr de falha
-    }
-
+    /** Faz a request de update */
     onUpdate() {
         const { id } = this.state.data.car;
 
-        console.log(this.state.data);
+        if (id) {
+            const route = `${ApiRoutes.UpdateCar}${id}`;
+            const payload = this.state.data.car[0];
 
-        const route = `${ApiRoutes.UpdateCar}${id}`;
-        console.log(route);
+            this.request.SendRequestPut(route, payload, this._updateSuccess, this._updateFail);
+            return;
+        }
+
+        this._updateFail();
     }
 
-    _updateSuccess() { }
+    _updateSuccess() {
+        //exibe o toastr de atualizado com sucesso
+        this.onSetInitialState();
 
-    _updateFail() { }
+        console.log('atualizado');
+    }
 
+    _updateFail() {
+        //exibe o toastr de falha ao atualizar
+        console.log('falhou a atualização');
+    }
+
+    /** Faz a request de exclusão do veiculo */
     onRemove() {
         console.log('Removeu Store');
     }
@@ -184,6 +196,7 @@ class CarDetailStore extends Reflux.Store {
 
     _removeFail() { }
 
+    /** Limpa os campos do detalhamento do veiculo */
     _clearListCar() {
         this.setState(update(this.state, {
             data: {
@@ -192,6 +205,8 @@ class CarDetailStore extends Reflux.Store {
         }));
     }
 
+    /** Seta o isLoading de acordo com o status passado 
+     * por parametro */
     _setLoading(status) {
         this.setState(update(this.state, {
             controls: {
@@ -200,6 +215,7 @@ class CarDetailStore extends Reflux.Store {
         }))
     }
 
+    /** Seta o state inicial da tela */
     onSetInitialState() {
         this.setState({ ..._getInitialState() });
     }
