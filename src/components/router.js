@@ -5,7 +5,7 @@ import Layout from "../components/Shared/Layout/Layout";
 import Home from "../components/Home/Home";
 import ListCars from "../components/ListCars/ListCars";
 import CarDetail from "../components/CarDetail/CarDetail";
-import { HOME, LIST, DETAIL_CAR } from "./contants";
+import { HOME, LIST, DETAIL_CAR } from "../contants";
 
 /** Componente de rotas, cada <Route> representa a rota 
  * de sua respectiva tela */

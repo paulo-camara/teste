@@ -1,6 +1,6 @@
 import React from "react";
 import ItemMenu from "./ItemMenu/ItemMenu";
-import { PAGES } from './../../contants';
+import { PAGES } from "./../../../contants";
 
 /** Componente stateless de menu lateral */
 export const Menu = () => {
