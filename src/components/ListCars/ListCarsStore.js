@@ -30,11 +30,13 @@ class ListCarsStore extends Reflux.Store {
   }
 
   /** Método responsavel por controlar o state do input de filtro */
-  onUpdateValueInput(value) {
+  onUpdateValueInput(event) {
+    const { name, value } = event.target;
+
     this.setState(
       update(this.state, {
         data: {
-          valueInput: { $set: value }
+          [name]: { $set: [value] }
         }
       })
     );

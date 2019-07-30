@@ -27,9 +27,7 @@ class ListCars extends Reflux.Component {
   /** A cada change no input o metodo onChangeInput é disparado, 
    * passando o valor para a store */
   onChangeInput(event) {
-    const { value } = event.target;
-
-    ListCarsActions.UpdateValueInput(value);
+    ListCarsActions.UpdateValueInput(event);
   }
 
   /** Método responsavel por disparar o filtro de carros ao clicar 

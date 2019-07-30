@@ -18,6 +18,12 @@ class Request {
       .then(res => success(res.data))
       .catch(err => fail(err));
   }
+
+  SendRequestDelete(route, success, fail) {
+    axios.delete(route)
+      .then(res => success(res.data))
+      .catch(err => fail(err));
+  }
 }
 
 export default Request;
