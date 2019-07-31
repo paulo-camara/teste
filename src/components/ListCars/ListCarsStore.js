@@ -71,7 +71,7 @@ class ListCarsStore extends Reflux.Store {
     console.log(err);
     
     this._setLoading(false);
-    toastr.error("Erro ao buscar veiculo");
+    toastr.error("Erro ao buscar veículo");
   }
 
   /** Método responsavel por limpar a lista de carros, para quando for feito um

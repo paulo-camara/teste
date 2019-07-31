@@ -61,7 +61,7 @@ class CarDetail extends Reflux.Component {
     }
 
     /** Controla os states dos inputs de detalhamento do 
-     * veiculo */
+     * veículo */
     onChangeViewFullDataCar(event) {
         CarDetailActions.ChangeInputDetail(event);
     }
@@ -75,7 +75,7 @@ class CarDetail extends Reflux.Component {
                 <InputFilter
                     idInput={"filter-car-input"}
                     idButton={"filter-car-button"}
-                    placeHolder={"Pesquise por um veiculo"}
+                    placeHolder={"Pesquise por um veículo"}
                     titleButton={"Pesquisar"}
                     value={valueInput}
                     onChange={this.onChangeInput}
