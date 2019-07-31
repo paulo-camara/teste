@@ -41,9 +41,6 @@ class CarDetailStore extends Reflux.Store {
     this._findSuccess = this._findSuccess.bind(this);
     this._findFail = this._findFail.bind(this);
 
-    this._saveSuccess = this._saveSuccess.bind(this);
-    this._saveFail = this._saveFail.bind(this);
-
     this._updateSuccess = this._updateSuccess.bind(this);
     this._updateFail = this._updateFail.bind(this);
 
@@ -54,7 +51,6 @@ class CarDetailStore extends Reflux.Store {
   /**Método executado quando é requisitado o detalhamento pela
    * tela de listagem de veiculos */
   onGetDetailsCar(carID) {
-    this._setLoading(true);
     this.route = `${ApiRoutes.ListCars}${carID}`;
 
     this.request.SendRequestGet(
@@ -130,43 +126,7 @@ class CarDetailStore extends Reflux.Store {
 
   _findFail() {
     this._setLoading(false);
-
     toastr.error("Erro ao buscar veiculo");
-  }
-
-  /** Executa a request de salvar o veiculo */
-  onSave() {
-    const payload = {
-      car: {
-        ...this.state.data.car,
-        test: ''
-      }
-    }
-
-    const isValid = this._isSavePayload(payload);
-    if (!isValid) {
-      toastr.error("Preencha os campos corretamente");
-      return;
-    }
-
-    this._setLoading(true)
-
-    this.request.SendRequestPost(
-      ApiRoutes.SaveCar,
-      payload,
-      this._saveSuccess,
-      this._saveFail
-    );
-  }
-
-  _saveSuccess() {
-    toastr.success("Veiculo salvo com sucesso");
-    this.onSetInitialState();
-  }
-
-  _saveFail() {
-    this._setLoading(false);
-    toastr.error("Erro ao salvar o veiculo");
   }
 
   /** Faz a request de update */
@@ -226,17 +186,6 @@ class CarDetailStore extends Reflux.Store {
   _removeFail() {
     this._setLoading(false);
     toastr.error("Erro ao deletar veiculo")
-  }
-
-  /** Valida se o payload contem todas as propriedades do veiculo */
-  _isSavePayload(payload) {
-    const { title, model, price, color, km, brand, year } = payload.car
-
-    if (title && model && price && color && km && brand && year) {
-      return true;
-    }
-
-    return false;
   }
 
   /** Limpa os campos do detalhamento do veiculo */

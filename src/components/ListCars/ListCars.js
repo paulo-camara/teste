@@ -5,6 +5,7 @@ import InputFilter from "../Shared/Filters/InputFilter/InputFilter";
 import ListCarsActions from "./ListCarsActions";
 import ListCarsStore from "./ListCarsStore";
 import ViewDataCar from "./ViewDataCar/ViewDataCar";
+import { LIST_CAR } from "../../contants";
 
 /** Componente da tela de Lista de carros */
 class ListCars extends Reflux.Component {
@@ -45,12 +46,11 @@ class ListCars extends Reflux.Component {
         <InputFilter
           idInput={"filter-car-input"}
           idButton={"filter-car-button"}
-          placeHolder={"Search a car"}
-          titleButton={"Search"}
           value={value}
           onChange={this.onChangeInput}
           buttonAction={this._findCar}
         />
+        {cars.length > 0 ? <h3 className="page-title">{LIST_CAR.text}</h3> : null}
         <Loading isLoading={isLoading} />
 
         {/* Ao receber a lista `cars` é feito o map para cada item 

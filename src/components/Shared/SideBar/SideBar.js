@@ -5,7 +5,9 @@ import { Menu } from "./../Menu/Menu";
 const SideBar = () => (
   <div className="side-bar">
     <div className="icon">
-      <div className="icon-tc" />
+      <a href="https://tradersclub.com.br">
+        <div className="icon-tc" />
+      </a>
     </div>
     <Menu />
   </div>

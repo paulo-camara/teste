@@ -14,6 +14,10 @@ body {
   height: 100%;
 }
 
+.page-title {
+  padding-top: 10px;
+}
+
 a {
   font-size: 20px;
   width: 100%;
@@ -35,3 +39,4 @@ a {
 @import "../src/components/Shared/Loading/Loading.css";
 @import "../src/components/CarDetail/ViewFullDataCar/ViewFullDataCar.css";
 @import "../src/components/Shared/NotFound/NotFound.css";
+@import "../src/components/CreateCar/CreateCar.css";

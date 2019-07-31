@@ -12,9 +12,9 @@
 }
 
 .icon-tc {
+  cursor: pointer;
   background: url("../../../img/logo-tc.png") no-repeat;
   background-position: top;
   margin-top: 10px;
   height: 100px;
-  width: 100px;
 }

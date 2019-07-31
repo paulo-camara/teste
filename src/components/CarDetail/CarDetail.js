@@ -5,6 +5,7 @@ import InputFilter from "../Shared/Filters/InputFilter/InputFilter";
 import CarDetailActions from "./CarDetailActions";
 import CarDetailStore from "./CarDetailStore";
 import ViewFullDataCar from "../CarDetail/ViewFullDataCar/ViewFullDataCar";
+import { DETAIL_CAR } from "../../contants";
 
 class CarDetail extends Reflux.Component {
   constructor(props) {
@@ -18,7 +19,6 @@ class CarDetail extends Reflux.Component {
     this.onChangeInput = this.onChangeInput.bind(this);
     this._findCar = this._findCar.bind(this);
 
-    this.buttonSaveAction = this.buttonSaveAction.bind(this);
     this.buttonRemoveAction = this.buttonRemoveAction.bind(this);
     this.buttonUpdateAction = this.buttonUpdateAction.bind(this);
     this.buttonCancelAction = this.buttonCancelAction.bind(this);
@@ -33,10 +33,6 @@ class CarDetail extends Reflux.Component {
    * para que não fique lixo ao voltar na tela */
   componentWillUnmount() {
     CarDetailActions.SetInitialState();
-  }
-
-  buttonSaveAction() {
-    CarDetailActions.Save();
   }
 
   buttonRemoveAction() {
@@ -81,6 +77,7 @@ class CarDetail extends Reflux.Component {
           onChange={this.onChangeInput}
           buttonAction={this._findCar}
         />
+        <h3 className="page-title">{DETAIL_CAR.text}</h3>
         <ViewFullDataCar
           title={car.title}
           brand={car.brand}
@@ -90,11 +87,20 @@ class CarDetail extends Reflux.Component {
           price={car.price}
           km={car.km}
           onChange={this.onChangeViewFullDataCar}
-          onSave={this.buttonSaveAction}
-          onUpdate={this.buttonUpdateAction}
-          onRemove={this.buttonRemoveAction}
-          onCancel={this.buttonCancelAction}
         />
+        <div className="buttons">
+          <div className="actions-button">
+            <button className="remove-button" onClick={this.buttonRemoveAction}>
+              Excluir
+          </button>
+            <button className="cancel-button" onClick={this.buttonCancelAction}>
+              Cancelar
+          </button>
+            <button className="update-button" onClick={this.buttonUpdateAction}>
+              Atualizar
+          </button>
+          </div>
+        </div>
         <Loading isLoading={isLoading} />
       </React.Fragment>
     );

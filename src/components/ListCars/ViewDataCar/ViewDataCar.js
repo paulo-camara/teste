@@ -51,8 +51,6 @@ class ViewDataCar extends Reflux.Component {
       </div>
     );
   }
-
-
 }
 
 /** Propriedades necessarias para usar o componente */

@@ -1,5 +1,5 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 const ViewFullDataCar = props => {
   const {
@@ -10,17 +10,14 @@ const ViewFullDataCar = props => {
     color,
     price,
     km,
-    onChange,
-    onUpdate,
-    onCancel,
-    onRemove,
-    onSave
+    onChange
   } = props;
 
   return (
     <div className="view-full-data-car col-sm-12">
       <div className="col-sm-12">
         <input
+          placeholder="Titulo do veículo"
           name="title"
           className="col-sm-6 title"
           onChange={onChange}
@@ -29,12 +26,14 @@ const ViewFullDataCar = props => {
       </div>
       <div className="col-sm-12">
         <input
+          placeholder="Modelo"
           name="model"
           className="space-between model col-sm-3"
           onChange={onChange}
           value={model}
         />
         <input
+          placeholder="Ano"
           name="year"
           className="space-between year col-sm-3"
           onChange={onChange}
@@ -43,6 +42,7 @@ const ViewFullDataCar = props => {
       </div>
       <div className="col-sm-12">
         <input
+          placeholder="Marca"
           name="brand"
           className={"col-sm-6"}
           onChange={onChange}
@@ -51,12 +51,14 @@ const ViewFullDataCar = props => {
       </div>
       <div className="col-sm-12">
         <input
+          placeholder="Cor"
           name="color"
           className="space-between color col-sm-3"
           onChange={onChange}
           value={color}
         />
         <input
+          placeholder="Preço"
           name="price"
           className="space-between price col-sm-3"
           onChange={onChange}
@@ -65,30 +67,25 @@ const ViewFullDataCar = props => {
       </div>
       <div className="col-sm-12">
         <input
+          placeholder="Quilometragem"
           name="km"
           className="col-sm-3 km"
           onChange={onChange}
           value={km}
         />
       </div>
-      <div className="buttons">
-        <div className="actions-button">
-          <button className="remove-button" onClick={onRemove}>
-            Remover
-          </button>
-          <button className="cancel-button" onClick={onCancel}>
-            Cancelar
-          </button>
-          <button className="update-button" onClick={onUpdate}>
-            Atualizar
-          </button>
-          <button className="save-button" onClick={onSave}>
-            Salvar
-          </button>
-        </div>
-      </div>
     </div>
   );
+};
+
+ViewFullDataCar.propTypes = {
+  title: PropTypes.string.isRequired,
+  model: PropTypes.string.isRequired,
+  brand: PropTypes.string.isRequired,
+  year: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  km: PropTypes.string.isRequired
 };
 
 export default ViewFullDataCar;

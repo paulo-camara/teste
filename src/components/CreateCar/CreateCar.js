@@ -1,8 +1,10 @@
 import React from "react";
 import Reflux from "reflux";
 import ViewFullDataCar from "../CarDetail/ViewFullDataCar/ViewFullDataCar";
+import Loading from "../Shared/Loading/Loading";
 import CreateCarStore from "./CreateCarStore";
 import CreateCarActions from "./CreateCarActions";
+import { SAVE_CAR } from "../../contants";
 
 class CreateCar extends Reflux.Component {
   constructor(props) {
@@ -13,9 +15,11 @@ class CreateCar extends Reflux.Component {
     this._setInputFilter = this._setInputFilter.bind(this);
   }
 
-  _setInputFilter(event) {
-    console.log(event.target.value);
+  componentWillUnmount() {
+    CreateCarActions.SetInitialState();
+  }
 
+  _setInputFilter(event) {
     CreateCarActions.SetInputValue(event);
   }
 
@@ -24,10 +28,12 @@ class CreateCar extends Reflux.Component {
   }
 
   render() {
+    const { isLoading } = this.state.controls;
     const { title, brand, model, year, color, price, km } = this.state.data;
 
     return (
       <React.Fragment>
+        <h3 className="page-title">{SAVE_CAR.text}</h3>
         <ViewFullDataCar
           title={title}
           brand={brand}
@@ -41,6 +47,7 @@ class CreateCar extends Reflux.Component {
         <button className="button-save" onClick={this.saveCar}>
           Salvar
         </button>
+        <Loading isLoading={isLoading}/>
       </React.Fragment>
     );
   }

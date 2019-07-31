@@ -67,9 +67,7 @@ class ListCarsStore extends Reflux.Store {
   }
 
   /** Método executado em caso de erro na request. Exibe o toastr de erro */
-  _findCarFail(err) {
-    console.log(err);
-    
+  _findCarFail(err) {    
     this._setLoading(false);
     toastr.error("Erro ao buscar veículo");
   }

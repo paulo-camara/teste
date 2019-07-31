@@ -6,7 +6,6 @@ const CarDetailActions = Reflux.createActions([
     'ChangeInputFilter',
     'SetInitialState',
     'GetDetailsCar',
-    'Save',
     'Remove',
     'Cancel',
     'Update'

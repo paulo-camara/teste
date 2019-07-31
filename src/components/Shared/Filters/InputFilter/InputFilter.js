@@ -5,8 +5,6 @@ import PropTypes from "prop-types";
 const InputFilter = ({
   idInput,
   idButton,
-  placeHolder,
-  titleButton,
   value,
   onChange,
   buttonAction
@@ -16,7 +14,7 @@ const InputFilter = ({
         name="valueInput"
         className="input-filter-class"
         id={idInput}
-        placeholder={placeHolder}
+        placeholder={"Busque por um veículo"}
         value={value}
         onChange={onChange}
       />
@@ -25,7 +23,7 @@ const InputFilter = ({
         id={idButton}
         onClick={() => buttonAction()}
       >
-        {titleButton}
+        Pesquisar
       </button>
     </div>
   );
@@ -34,8 +32,6 @@ const InputFilter = ({
 InputFilter.propTypes = {
   idInput: PropTypes.string.isRequired,
   idButton: PropTypes.string.isRequired,
-  placeHolder: PropTypes.string.isRequired,
-  titleButton: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   buttonAction: PropTypes.func.isRequired,
