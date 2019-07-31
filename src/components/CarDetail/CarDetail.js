@@ -71,7 +71,7 @@ class CarDetail extends Reflux.Component {
         const { valueInput, car } = this.state.data;
 
         return (
-            <div>
+            <React.Fragment>
                 <InputFilter
                     idInput={"filter-car-input"}
                     idButton={"filter-car-button"}
@@ -95,7 +95,7 @@ class CarDetail extends Reflux.Component {
                     onRemove={this.buttonRemoveAction}
                     onCancel={this.buttonCancelAction} />
                 <Loading isLoading={isLoading} />
-            </div>
+            </React.Fragment>
         );
     }
 }

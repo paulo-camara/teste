@@ -49,7 +49,7 @@ class ListCarsStore extends Reflux.Store {
     const { valueInput } = this.state.data;
     const route = `${ApiRoutes.ListCars}${valueInput}`;
 
-    this.request.SendRequestGet(route, this._findCarSuccess, this._findCarFail)
+    this.request.SendRequestGet(route, this._findCarSuccess, this._findCarFail);
   }
 
   /** método executado em caso de sucesso da request.
@@ -68,6 +68,8 @@ class ListCarsStore extends Reflux.Store {
 
   /** Método executado em caso de erro na request. Exibe o toastr de erro */
   _findCarFail(err) {
+    console.log(err);
+    
     this._setLoading(false);
     toastr.error("Erro ao buscar veiculo");
   }

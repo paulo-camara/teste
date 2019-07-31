@@ -5,7 +5,7 @@ const Home = () => (
   <div className="home-page">
     <div className="home-message">
       <h1 className="message">
-        Pesquisa de veiculo do <b>TradersClub</b>{" "}
+        Pesquisa de veiculo do <b>TradersClub</b>
       </h1>
     </div>
   </div>
