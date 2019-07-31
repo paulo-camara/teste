@@ -15,7 +15,7 @@ Para subir o servidor use o comando: `yarn start`
 
 ## Build
 
-`yarn build` para iniciar o build que irá gerar a past `build`
+`yarn build` irá gerar a past `build`
 
 ## Host
 link do s3
