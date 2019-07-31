@@ -5,6 +5,11 @@
     border-bottom: 1px solid white;
 }
 
+b .view-car {
+    background: #1a2433;
+    padding: 5px;
+  }
+
 .row-one {
     padding-bottom: 20px;
 }
