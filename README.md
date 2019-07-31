@@ -2,10 +2,10 @@
 
 ## Built With
 
-* [React](https://reactjs.org/) - JavaScript library
-* [Reat-Router]() - JavaScript library
-* [Reflux]() - JavaScript library
-* [Axios]() - JavaScript library
+* [React](https://github.com/facebook/react) - JavaScript library
+* [Reat-Router](https://github.com/ReactTraining/react-router) - JavaScript library
+* [Reflux](https://github.com/reflux/refluxjs) - JavaScript library
+* [Axios](https://github.com/axios/axios) - JavaScript library
 
 ## Server de mock
 
