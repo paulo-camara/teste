@@ -11,7 +11,8 @@ import Home from "../components/Home/Home";
 import ListCars from "../components/ListCars/ListCars";
 import CarDetail from "../components/CarDetail/CarDetail";
 import NotFound from "../components/Shared/NotFound/NotFound";
-import { HOME, LIST, DETAIL_CAR } from "../contants";
+import { HOME, LIST_CAR, DETAIL_CAR, SAVE_CAR } from "../contants";
+import CreateCar from "./CreateCar/CreateCar";
 
 /** Componente de rotas, cada <Route> representa a rota
  * de sua respectiva tela */
@@ -31,11 +32,20 @@ const WithRouter = () => (
         )}
       />
       <Route
-        path={LIST.path}
+        path={LIST_CAR.path}
         exact
         component={() => (
           <Layout>
             <ListCars />
+          </Layout>
+        )}
+      />
+      <Route
+        path={SAVE_CAR.path}
+        exact
+        component={() => (
+          <Layout>
+            <CreateCar/>
           </Layout>
         )}
       />
@@ -48,7 +58,7 @@ const WithRouter = () => (
           </Layout>
         )}
       />
-      <Route component={() => <NotFound/>} />
+      <Route component={() => <NotFound />} />
     </Switch>
   </Router>
 );

@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
 import CarDetailStore from "../../CarDetail/CarDetailStore";
 import CarDetailActions from "../../CarDetail/CarDetailActions";
+import { DETAIL_CAR } from './../../../contants';
 
 
 class ViewDataCar extends Reflux.Component {
@@ -43,7 +44,7 @@ class ViewDataCar extends Reflux.Component {
 
         <Link
           className="details-link"
-          to={`/detail-car`}
+          to={DETAIL_CAR.path}
           onClick={this.GetCar}>
           {'detalhes'}
         </Link>
