@@ -1,7 +1,9 @@
 class ApiRoutes {
   constructor() {
-    const env = "mock";
-    
+    const env = process.env.REACT_APP_ENV;
+
+    console.log(process.env.REACT_APP_ENV);
+
     const routes = {
       mock:
         "https://private-anon-239e04e901-tradersclubapi.apiary-mock.com/api",

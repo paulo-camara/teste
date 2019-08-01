@@ -7,15 +7,41 @@
 * [Reflux](https://github.com/reflux/refluxjs) - JavaScript library
 * [Axios](https://github.com/axios/axios) - JavaScript library
 
-## Server de mock
+## Server
 
-Para rodar o servidor apontando para as rotas de produção, altere o arquivo `ApiRoutes.js`, passando o valor `production` para a variavel `env`
-
-Para subir o servidor use o comando: `yarn start`
+Para rodar o servidor basta especificar o `env` e rodar o comando `start`
 
 ## Build
 
-`yarn build` irá gerar a past `build`
+Para rodar o build basta especificar o `env` e rodar o comando `build`
+
+## Ambiente
+
+    Para rodar em produção: [env] = production
+    Para rodar em mock: [env] = mock
+
+### Windows (cmd.exe)
+
+    set "REACT_APP_ENV=[env]" && yarn [start/build]
+
+### Windows (Powershell)
+
+    ($env:REACT_APP_ENV = "[env]") -and (yarn [start/build])
+
+### Linux, macOS (Bash)
+
+    REACT_APP_ENV="[env]" yarn [start/build]
+
+#### Exemplo
+
+##### Server (Powershell)
+
+    ($env:REACT_APP_ENV = "production") -and (yarn start)
+
+##### Build (Powershell)
+
+    ($env:REACT_APP_ENV = "mock") -and (yarn build)
 
 ## Host
- d2p2v5rq0kgknt.cloudfront.net - Deploy em ambiente de mock
+
+    d2p2v5rq0kgknt.cloudfront.net - Deploy em ambiente de mock
