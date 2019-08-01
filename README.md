@@ -18,4 +18,4 @@ Para subir o servidor use o comando: `yarn start`
 `yarn build` irá gerar a past `build`
 
 ## Host
-link do s3
+ * [test-traders-club.cloudfront.net](d2p2v5rq0kgknt.cloudfront.net) - Deploy em ambiente de mock
