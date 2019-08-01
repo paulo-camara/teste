@@ -1,6 +1,6 @@
 import React from "react";
 import Reflux from "reflux";
-import ViewFullDataCar from "../CarDetail/ViewFullDataCar/ViewFullDataCar";
+import ViewFullDataCar from "../Shared/ViewFullDataCar/ViewFullDataCar";
 import Loading from "../Shared/Loading/Loading";
 import CreateCarStore from "./CreateCarStore";
 import CreateCarActions from "./CreateCarActions";

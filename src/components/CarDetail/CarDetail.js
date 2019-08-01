@@ -4,7 +4,7 @@ import Loading from "../Shared/Loading/Loading";
 import InputFilter from "../Shared/Filters/InputFilter/InputFilter";
 import CarDetailActions from "./CarDetailActions";
 import CarDetailStore from "./CarDetailStore";
-import ViewFullDataCar from "../CarDetail/ViewFullDataCar/ViewFullDataCar";
+import ViewFullDataCar from "../Shared/ViewFullDataCar/ViewFullDataCar";
 import { DETAIL_CAR } from "../../contants";
 
 class CarDetail extends Reflux.Component {
