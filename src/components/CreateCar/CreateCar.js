@@ -12,17 +12,24 @@ class CreateCar extends Reflux.Component {
 
     this.store = CreateCarStore;
 
+    /** Função bindada no constructor para que não bind a cada
+     * vez que pasar no render ao dar setState*/ 
     this._setInputFilter = this._setInputFilter.bind(this);
   }
 
+  /** Ao desmontar o componente é resetado o state */
   componentWillUnmount() {
     CreateCarActions.SetInitialState();
   }
 
+  /** Função passada para o componente ViewFullDataCar 
+   * para fazer o controle do valor do state do input */
   _setInputFilter(event) {
     CreateCarActions.SetInputValue(event);
   }
 
+  /** Função passada para o click do botão, chama a 
+   * action de salvar o veículo */
   saveCar() {
     CreateCarActions.SaveCar();
   }

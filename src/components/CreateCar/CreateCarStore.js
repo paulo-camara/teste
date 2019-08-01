@@ -31,10 +31,14 @@ class CreateCarStore extends Reflux.Store {
 
     this.request = new Request();
 
+    /** Funções bindads no constructor para que sejam 
+     * bindadas apenas uma vez */
     this._saveCarSuccess = this._saveCarSuccess.bind(this);
     this._saveCarFail = this._saveCarFail.bind(this);
   }
 
+  /** Função recebe o name do input e o value no parametro event,
+   * o nome irá ser usado como variavel de acesso do state*/
   onSetInputValue(event) {
     const { name, value } = event.target;
 
@@ -91,10 +95,13 @@ class CreateCarStore extends Reflux.Store {
     toastr.error("Erro ao salvar o veiculo");
   }
 
+  /** Restaura o state para o inicial */
   onSetInitialState() {
     this.setState({ ..._getInitialState() });
   }
 
+  /** Seta o state do isLoading de acordo com 
+   * o status passado */
   _setLoading(status) {
     this.setState(update(this.state,
       {
